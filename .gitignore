@@ -1,0 +1,29 @@
+# LaTeX 编译中间文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.pdf
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# 解压的 Word 模板（不需要发布）
+docx_extracted/
+
+# 上交原始模板参考目录（不纳入当前昆工模板仓库）
+SJTUThesis-full-2.3.1/
+
+# 原始 Word 模板（不需要发布）
+*.docx
+
+# 其他临时文件
+*.bak
+*~
