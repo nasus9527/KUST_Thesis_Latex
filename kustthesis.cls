@@ -17,6 +17,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{booktabs}
+\RequirePackage{etoolbox}
 \RequirePackage{fontspec}
 \RequirePackage{setspace} % 设置行距
 \RequirePackage[
@@ -270,6 +271,11 @@
     name={Table},
     skip=0bp
 }
+
+% 通栏三线表环境：按正文宽度均匀拉伸列间距。
+\newenvironment{kusttabular}[1]
+  {\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#1}}
+  {\end{tabular*}}
 
 % ==========================================
 % 表注/图注 (fignote)
