@@ -288,8 +288,18 @@
     \linespread{1.0}\selectfont % 单倍行距
     \setlength{\parindent}{2em}
     \setlength{\parskip}{0bp}
+    \leftskip=0pt
+    \rightskip=0pt
+    \parfillskip=0pt plus 1fil
+    \spaceskip=0pt
+    \xspaceskip=0pt
+    \noindent
     \vspace{2bp} 
-    \indent #1\par
+    \begin{minipage}{\textwidth}
+    \setlength{\parindent}{2em}
+    \setlength{\parskip}{0bp}
+    #1\par
+    \end{minipage}
     \endgroup
 }
 
