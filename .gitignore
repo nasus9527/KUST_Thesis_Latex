@@ -29,4 +29,5 @@ SJTUThesis-full-2.3.1/
 *~
 # 引用的数据库
 *.bib
+# 错误文件
 main.bbl-SAVE-ERROR
