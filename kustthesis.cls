@@ -82,7 +82,7 @@
 \fancypagestyle{main}{
     \fancyhf{} % 清空页眉页脚
     % 页眉内容：中文字体为宋体，英文为 Times New Roman，五号，居中。
-    % 奇数页为本章标题，偶数页为“昆明理工大学博/硕士学位论文”
+    % 奇数页为本章标题，偶数页为“昆明理工大学硕士学位论文”
     \fancyhead[CO]{\wuhao \songti \leftmark}
     \fancyhead[CE]{\wuhao \songti 昆明理工大学硕士学位论文}
     % 页眉下横线为单实线
@@ -95,7 +95,16 @@
 \fancypagestyle{front}{
     \fancyhf{}
     \fancyhead[CO]{\wuhao \songti \leftmark}
-    \fancyhead[CE]{\wuhao \songti 昆明理工大学博/硕士学位论文}
+    \fancyhead[CE]{\wuhao \songti 昆明理工大学硕士学位论文}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \fancyfoot[C]{\xiaowu\rmfamily \thepage}
+}
+
+% 英文摘要页眉单独固定为 Abstract
+\fancypagestyle{enabstractstyle}{
+    \fancyhf{}
+    \fancyhead[CO]{\wuhao \rmfamily Abstract}
+    \fancyhead[CE]{\wuhao \rmfamily Abstract}
     \renewcommand{\headrulewidth}{0.5pt}
     \fancyfoot[C]{\xiaowu\rmfamily \thepage}
 }
@@ -104,13 +113,19 @@
 \fancypagestyle{plain}{
     \fancyhf{}
     \fancyhead[CO]{\wuhao \songti \leftmark}
-    \fancyhead[CE]{\wuhao \songti 昆明理工大学博/硕士学位论文}
+    \fancyhead[CE]{\wuhao \songti 昆明理工大学硕士学位论文}
     \renewcommand{\headrulewidth}{0.5pt}
     \fancyfoot[C]{\xiaowu\rmfamily \thepage}
 }
 
-% 修复 \leftmark 中可能出现的额外字符，确保只显示章标题
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% 正文章节页眉显示为“第X章 章名”，其余无编号章节保持原标题
+\renewcommand{\chaptermark}[1]{%
+    \ifnum\value{chapter}>0
+        \markboth{第\chinese{chapter}章\quad #1}{}%
+    \else
+        \markboth{#1}{}%
+    \fi
+}
 
 % ==========================================
 % 各级标题格式设置 (ctexset)
@@ -178,11 +193,14 @@
     \chapter*{Abstract}
     \markboth{Abstract}{Abstract}
     \addcontentsline{toc}{chapter}{Abstract}
+    \thispagestyle{enabstractstyle}
+    \pagestyle{enabstractstyle}
     \rmfamily\xiaosi
     \setlength{\parindent}{2em}
     \setlength{\baselineskip}{20bp}
 }{
     \par\vspace{1ex}
+    \pagestyle{front}
 }
 
 % 英文关键词
@@ -388,11 +406,10 @@
   \begin{titlepage}
       \songti\sihao\setlength{\baselineskip}{24pt} % 宋体 四号 2倍行距 
       \noindent
-      \begin{tabular}{@{}ll}
-          分类号 & \underline{\makebox[3cm]{}} \\
-          密级   & \underline{\makebox[3cm]{}} \\
-          UDC    & \underline{\makebox[3cm]{}} \\
-      \end{tabular}
+      \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll@{}}
+          分类号 & 密\hspace{1em}级 \\
+          U\hspace{0.5em}D\hspace{0.5em}C & \underline{\makebox[3cm]{}} \\
+      \end{tabular*}
 
       \vspace{2cm}
 
@@ -408,7 +425,8 @@
           \vspace{2cm}
           
           % 论文题名：题名宜＜20字。中文字体宋体，西文 Times New Roman，一号，居中，1.2倍行距。
-          {\songti\yihao\bfseries\linespread{1.2}\selectfont \kust@info@title \par}
+          {\songti\yihao\linespread{1.2}\selectfont
+          \underline{\makebox[0.8\textwidth][c]{\kust@info@title}}\par}
           
           \vspace{4cm}
           
