@@ -2,7 +2,7 @@
 
 本项目是一个面向昆明理工大学研究生学位论文写作的 LaTeX 模板工程，目标是尽可能贴近学校官方 Word 模板的版式要求，并提供一套可直接修改、可持续维护的示例文档。
 
-当前模板以本仓库中的 [`kustthesis.cls`](d:/OneDrive/paperdata/Tex论文模板/kustthesis.cls) 为核心，配套提供了封面、声明、中英文摘要、目录、插图和附表清单、缩略词、正文、参考文献与附录示例。项目同时保留了学校官方 Word 模板的解压分析结果，以及上海交通大学模板作为参考实现，便于后续继续比对和完善。
+当前模板以本仓库中的 [`kustthesis.cls`](kustthesis.cls) 为核心，配套提供了封面、声明、中英文摘要、目录、插图和附表清单、缩略词、正文、参考文献与附录示例。项目同时保留了学校官方 Word 模板的解压分析结果，以及上海交通大学模板作为参考实现，便于后续继续比对和完善。
 
 ## 项目特点
 
@@ -45,31 +45,37 @@
 - Biber
 - UTF-8 编码
 
-本模板依赖 [`fontspec`](d:/OneDrive/paperdata/Tex论文模板/kustthesis.cls)，因此不能使用 `pdfLaTeX`。如果使用 VS Code + LaTeX Workshop，请确保编译链为 `xelatex -> biber -> xelatex -> xelatex`。
+本模板依赖 `fontspec`，因此不能使用 `pdfLaTeX`。如果使用 VS Code + LaTeX Workshop，请确保编译链为 `xelatex -> biber -> xelatex -> xelatex`。
 
 ## 快速开始
 
 ### 1. 修改论文信息
 
-论文题名、学位类型、作者姓名、指导教师、学科专业、研究方向、论文起止日期、提交日期等信息在 [`setup.tex`](d:/OneDrive/paperdata/Tex论文模板/setup.tex) 中统一配置。
+论文题名、学位类型、作者姓名、指导教师、学科专业、研究方向、论文起止日期、提交日期等信息在 [`setup.tex`](setup.tex) 中统一配置。
 
 ### 2. 编辑正文内容
 
-正文内容按章节拆分在 `contents/` 目录下，主文件 [`main.tex`](d:/OneDrive/paperdata/Tex论文模板/main.tex) 通过 `\input{...}` 依次加载。
+正文内容按章节拆分在 `contents/` 目录下，主文件 [`main.tex`](main.tex) 通过 `\input{...}` 依次加载。
 
 目前主要章节文件包括：
 
-- [`contents/intro.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/intro.tex)
-- [`contents/chapter2.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter2.tex)
-- [`contents/chapter3.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter3.tex)
-- [`contents/chapter4.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter4.tex)
-- [`contents/chapter5.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter5.tex)
-- [`contents/abstract.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/abstract.tex)
-- [`contents/abbreviations.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/abbreviations.tex)
-- [`contents/ack.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/ack.tex)
-- [`contents/achievements.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/achievements.tex)
+- [`contents/intro.tex`](contents/intro.tex)
+- [`contents/chapter2.tex`](contents/chapter2.tex)
+- [`contents/chapter3.tex`](contents/chapter3.tex)
+- [`contents/chapter4.tex`](contents/chapter4.tex)
+- [`contents/chapter5.tex`](contents/chapter5.tex)
+- [`contents/abstract.tex`](contents/abstract.tex)
+- [`contents/abbreviations.tex`](contents/abbreviations.tex)
+- [`contents/ack.tex`](contents/ack.tex)
+- [`contents/achievements.tex`](contents/achievements.tex)
 
 ### 3. 编译文档
+
+Windows 用户可以直接双击或在终端运行一键脚本：
+
+```powershell
+.\Compile.bat
+```
 
 推荐命令：
 
@@ -93,15 +99,15 @@ xelatex -> biber -> xelatex -> xelatex
 
 仓库当前的主要目录与文件如下：
 
-- [`main.tex`](d:/OneDrive/paperdata/Tex论文模板/main.tex)：主控文件，组织整篇论文结构
-- [`kustthesis.cls`](d:/OneDrive/paperdata/Tex论文模板/kustthesis.cls)：模板类文件，控制版式与命令
-- [`setup.tex`](d:/OneDrive/paperdata/Tex论文模板/setup.tex)：论文信息与全局配置
-- [`reference.bib`](d:/OneDrive/paperdata/Tex论文模板/reference.bib)：参考文献数据库
+- [`main.tex`](main.tex)：主控文件，组织整篇论文结构
+- [`kustthesis.cls`](kustthesis.cls)：模板类文件，控制版式与命令
+- [`setup.tex`](setup.tex)：论文信息与全局配置
+- `reference.bib`：参考文献数据库（可按需新建）
 - `contents/`：正文及前后置部分内容
 - `image/`：示例图片
 - `figures/`：预留的图形目录
-- [`KUST_Thesis_Standard.md`](d:/OneDrive/paperdata/Tex论文模板/KUST_Thesis_Standard.md)：已整理出的学校版式要求
-- [`医学部-博士硕士通用研究生学位论文模板.docx`](d:/OneDrive/paperdata/Tex论文模板/医学部-博士硕士通用研究生学位论文模板.docx)：学校官方 Word 模板原件
+- [`KUST_Thesis_Standard.md`](KUST_Thesis_Standard.md)：已整理出的学校版式要求
+- [`医学部-博士硕士通用研究生学位论文模板.docx`](医学部-博士硕士通用研究生学位论文模板.docx)：学校官方 Word 模板原件
 - `docx_extracted/`：Word 模板解压后的结构化分析文件
 - `SJTUThesis-full-2.3.1/`：上海交通大学模板参考实现，用于借鉴写法与组织方式
 
@@ -120,8 +126,8 @@ xelatex -> biber -> xelatex -> xelatex
 
 示例可以参考：
 
-- [`contents/chapter3.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter3.tex)
-- [`contents/chapter2.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter2.tex)
+- [`contents/chapter3.tex`](contents/chapter3.tex)
+- [`contents/chapter2.tex`](contents/chapter2.tex)
 
 模板中提供了这些常用命令：
 
@@ -138,7 +144,7 @@ xelatex -> biber -> xelatex -> xelatex
 - `\cite{...}` 文献引用
 - 国标风格参考文献输出
 
-第二章 [`contents/chapter2.tex`](d:/OneDrive/paperdata/Tex论文模板/contents/chapter2.tex) 已经整理成“模板使用说明”，里面包含了这些写法的最小示例。
+第二章 [`contents/chapter2.tex`](contents/chapter2.tex) 已经整理成“模板使用说明”，里面包含了这些写法的最小示例。
 
 ## 编译与使用建议
 
@@ -149,7 +155,7 @@ xelatex -> biber -> xelatex -> xelatex
 
 ## Git 与仓库管理建议
 
-本仓库当前已经配置了 [`.gitignore`](d:/OneDrive/paperdata/Tex论文模板/.gitignore)，默认忽略：
+本仓库当前已经配置了 [`.gitignore`](.gitignore)，默认忽略：
 
 - LaTeX 编译中间文件
 - 生成的 PDF
@@ -202,7 +208,7 @@ xelatex -> biber -> xelatex -> xelatex
 
 ## 许可证与使用说明
 
-本项目采用 MIT License 开源，详见 [`LICENSE`](d:/OneDrive/paperdata/Tex论文模板/LICENSE)。
+本项目采用 MIT License 开源，详见 [`LICENSE`](LICENSE)。
 
 你可以在保留原始版权与许可证声明的前提下，自由使用、修改、分发本模板代码。
 
