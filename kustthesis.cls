@@ -197,11 +197,21 @@
 \renewcommand{\contentsname}{目\quad 录}
 \renewcommand{\listfigurename}{插图清单}
 \renewcommand{\listtablename}{附表清单}
-\setcounter{tocdepth}{1} 
+% 目录项显示到 2 级（章、节）。
+\setcounter{tocdepth}{1}
 
 % 通用的目录/清单标题样式调整（固定20bp，无额外段前段后）
 \newcommand{\setupTOCStyle}{
-    \ctexset{chapter/beforeskip=0bp, chapter/afterskip=20bp}
+    \ctexset{
+        chapter = {
+            format = \heiti\sanhao\centering,
+            nameformat = \heiti\sanhao,
+            numberformat = \heiti\sanhao,
+            titleformat = \heiti\sanhao,
+            beforeskip = 20bp,
+            afterskip = 20bp,
+        }
+    }
     \setlength{\baselineskip}{20bp}
 }
 
@@ -236,7 +246,7 @@
     {\hspace{0pt}} 
     {\titlerule*[0.5pc]{.}\rmfamily\contentspage}
 
-% 二级目录项 (节)：宋体 四号，左缩进2字符 (2em)
+% 二级目录项 (节)：宋体 四号，左缩进 2 字符
 \titlecontents{section}[2.5em] 
     {\songti\sihao\setlength{\baselineskip}{20bp}}
     {\thecontentslabel\quad}
@@ -317,8 +327,21 @@
 % ==========================================
 % 参考文献
 % ==========================================
-% 参考文献内容：宋体/Times五号，固定值20磅
+% 参考文献内容：宋体/Times 五号，左对齐，首行无缩进，
+% 段前段后 0 磅，固定值 20 磅。
 \renewcommand*{\bibfont}{\songti\rmfamily\wuhao\setlength{\baselineskip}{20bp}}
+\AtBeginBibliography{%
+    \songti\rmfamily\wuhao
+    \setlength{\baselineskip}{20bp}
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\bibitemsep}{0pt}
+    \setlength{\bibparsep}{0pt}
+    \leftskip=0pt
+    \rightskip=0pt
+    \parfillskip=0pt plus 1fil
+    \raggedright
+}
 
 % ==========================================
 % 键值对配置与封面生成 (SJTUThesis-like)
