@@ -3,16 +3,20 @@
 *.bbl
 *.bcf
 *.blg
+*.dvi
 *.fdb_latexmk
 *.fls
 *.lof
 *.log
 *.lot
+*.nav
 *.out
 *.pdf
+*.snm
 *.run.xml
 *.synctex.gz
 *.toc
+*.vrb
 *.xdv
 
 # 解压的 Word 模板（不需要发布）
@@ -26,8 +30,27 @@ SJTUThesis-full-2.3.1/
 
 # 其他临时文件
 *.bak
+*.tmp
+*.temp
 *~
+
+# 编辑器与系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
 # 引用的数据库
 *.bib
 # 错误文件
 main.bbl-SAVE-ERROR
+
+# 打包与发布产物
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+dist/

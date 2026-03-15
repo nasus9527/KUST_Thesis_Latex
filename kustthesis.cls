@@ -380,7 +380,7 @@
     info / submit-date .tl_set:N = \kust@info@submitdate,
   }
 
-\NewDocumentCommand \kustsetup { m }
+\NewDocumentCommand \kustsetup { +m }
   {
     \keys_set:nn { kust } { #1 }
   }
@@ -407,8 +407,8 @@
       \songti\sihao\setlength{\baselineskip}{24pt} % 宋体 四号 2倍行距 
       \noindent
       \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll@{}}
-          分类号 & 密\hspace{1em}级 \\
-          U\hspace{0.5em}D\hspace{0.5em}C & \underline{\makebox[3cm]{}} \\
+          分类号\underline{\makebox[3cm]{}} & 密\hspace{1em}级\underline{\makebox[3cm]{}} \\
+          U\hspace{0.5em}D\hspace{0.5em}C\underline{\makebox[3cm]{}} & \\
       \end{tabular*}
 
       \vspace{2cm}
@@ -436,14 +436,14 @@
           % 对齐与间距：两端对齐，1.25倍多倍行距。
           {\songti\sanhao
           \renewcommand{\arraystretch}{1.25} % 多倍行距 1.25
-          \begin{tabular}{l@{\hspace{0.5cm}}c}
-              \makebox[4.5cm][s]{研究生姓名} & \underline{\makebox[6.5cm]{\kaiti \kust@info@author}} \\
-              \makebox[4.5cm][s]{指导教师姓名、职称} & \underline{\makebox[6.5cm]{\kaiti \kust@info@supervisor}} \\
-              \makebox[4.5cm][s]{学科专业} & \underline{\makebox[6.5cm]{\kaiti \kust@info@major}} \\
-              \makebox[4.5cm][s]{研究方向} & \underline{\makebox[6.5cm]{\kaiti \kust@info@researchfield}} \\
-              \makebox[4.5cm][s]{论文工作起止日期} & \underline{\makebox[6.5cm]{\kaiti \kust@info@workdate}} \\
-              \makebox[4.5cm][s]{论文提交日期} & \underline{\makebox[6.5cm]{\kaiti \kust@info@submitdate}} \\
-          \end{tabular}
+          \begin{tabular*}{0.96\textwidth}{@{\extracolsep{\fill}}p{5.1cm}p{9.2cm}@{}}
+              \makebox[5.1cm][s]{研究生姓名} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@author}} \\
+              \makebox[5.1cm][s]{指导教师姓名、职称} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@supervisor}} \\
+              \makebox[5.1cm][s]{学科专业} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@major}} \\
+              \makebox[5.1cm][s]{研究方向} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@researchfield}} \\
+              \makebox[5.1cm][s]{论文工作起止日期} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@workdate}} \\
+              \makebox[5.1cm][s]{论文提交日期} & \underline{\makebox[9.2cm][c]{\kaiti \kust@info@submitdate}} \\
+          \end{tabular*}
           }
       \end{center}
   \end{titlepage}

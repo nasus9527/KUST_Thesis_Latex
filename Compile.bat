@@ -30,12 +30,14 @@ exit /b 0
 call :check_latexmk
 if errorlevel 1 exit /b 1
 echo [INFO] Compile thesis with XeLaTeX + Biber pipeline...
-latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode %THESIS%.tex
+latexmk -xelatex -synctex=1 -file-line-error -halt-on-error -interaction=nonstopmode %THESIS%.tex
 if errorlevel 1 (
   echo.
   echo [ERROR] Build failed. Please check %THESIS%.log for details.
   exit /b 1
 )
+echo [INFO] Clean auxiliary files and keep PDF + SyncTeX...
+latexmk -c %THESIS%.tex
 echo.
 echo [OK] Build finished: %THESIS%.pdf
 exit /b 0
@@ -72,4 +74,3 @@ echo   Compile.bat thesis
 echo   Compile.bat clean
 echo   Compile.bat cleanall
 exit /b 0
-

@@ -1,7 +1,7 @@
 # 昆明理工大学研究生学位论文 LaTeX 模板
 
 > **新手入口**
-> 第一次使用这个模板的同学，请先看 [`START_HERE.md`](START_HERE.md)。
+> 第一次使用这个模板的同学，请先看 [`docs/START_HERE.md`](docs/START_HERE.md)。
 > 这个文件会作为“从零开始使用”的完整教程入口，后续会持续补充。
 
 本项目是一个面向昆明理工大学医学部研究生学位论文写作的 LaTeX 模板工程（基于“医学部-博士硕士通用研究生学位论文模板.doc”），2026年3月10日学校发布了官方论文模板，以后医学部可能会采用学校官方的论文模板[关于公布昆明理工大学研究生学位论文撰写规范模版的通知](https://yjs.kmust.edu.cn/info/1264/4251.htm)。假如以后有新模板希望后有心制作Latex模板的后来者有个参考。本项目在导出的PDF文档相较于word导出的PDF页码更精准，不会发生格式错乱。
@@ -110,7 +110,7 @@ xelatex -> biber -> xelatex -> xelatex
 - `contents/`：正文及前后置部分内容
 - `image/`：示例图片
 - `figures/`：预留的图形目录
-- [`KUST_Thesis_Standard.md`](KUST_Thesis_Standard.md)：已整理出的学校版式要求
+- [`docs/KUST_Thesis_Standard.md`](docs/KUST_Thesis_Standard.md)：已整理出的学校版式要求
 - [`医学部-博士硕士通用研究生学位论文模板.docx`](医学部-博士硕士通用研究生学位论文模板.docx)：学校官方 Word 模板原件
 - `docx_extracted/`：Word 模板解压后的结构化分析文件
 - `SJTUThesis-full-2.3.1/`：上海交通大学模板参考实现，用于借鉴写法与组织方式
